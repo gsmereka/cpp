@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
         return 0;
     }
+
     for (int i = 1; i < argc; i++)
     {
         std::string word = argv[i];

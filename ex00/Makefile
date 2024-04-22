@@ -21,7 +21,7 @@ run: $(NAME)
 	clear && ./$(NAME) teste teste
 
 git:
-	@git add .
+	git add .
 	@read -p "Digite a mensagem do commit: " MESSAGE; \
 	git commit -m "$$MESSAGE" && git push
 
