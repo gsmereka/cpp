@@ -22,7 +22,8 @@ run: $(NAME)
 
 git:
 	git add .
-	git commit -m "att"
+	clear
+	git commit -m "$(M)"
 	git push
 
 clean:
