@@ -1,7 +1,20 @@
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+// #include "Contact.hpp"
+
 class PhoneBook
 {
     public:
-        void print_number();
+        PhoneBook(void);
+        ~PhoneBook(void);
+        Contact getContact(unsigned int index);
+        bool add(void);
+        unsigned int getBookSize(void);
+        static void search(PhoneBook const &book);
     private:
-        int x;
-}
+        Contact book[8];
+        unsigned int bookSize;
+};
+
+#endif // !PHONEBOOK_HPP

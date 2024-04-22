@@ -1,22 +1,12 @@
+#include "../headers/Contact.hpp"
+#include "../headers/PhoneBook.hpp"
 #include <iostream>
 
-int main(int argc, char *argv[])
+int main(void)
 {
-    if (argc <= 1)
-    {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-        return 0;
-    }
+    PhoneBook   book;
 
-    for (int i = 1; i < argc; i++)
-    {
-        std::string word = argv[i];
-        for (size_t c = 0; c < word.length(); c++)
-        {
-            std::cout << static_cast<char>(std::toupper(word[c]));
-        }
-        std::cout << " ";
-    }
-    std::cout << "\n";
-    return 0;
+    Contact cont("fgfsdgfsdgdsg", "lastName", "nickName",
+				"phoneNumber", "darkestSecret");
+    std::cout << cont.getFirstName() << std::endl;
 }

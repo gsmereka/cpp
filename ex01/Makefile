@@ -1,5 +1,5 @@
 NAME = megaphone
-FLAGS = -Wall -Wextra -Werror -std=c++98
+# FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_FILES = $(wildcard ./sources/*.cpp)
 OBJ = obj
 OBJ_FILES = $(SRC_FILES:sources/%.cpp=$(OBJ)/%.o)
@@ -18,7 +18,8 @@ ${OBJ}/%.o : sources/%.cpp
 
 
 run: $(NAME)
-	clear && ./$(NAME) teste teste
+	make re
+	clear && ./$(NAME)
 
 git:
 	git add .
