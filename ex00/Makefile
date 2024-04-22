@@ -21,10 +21,10 @@ run: $(NAME)
 	clear && ./$(NAME) teste teste
 
 git:
-	git add .
-	clear
-	git commit -m "$(M)"
-	git push
+	@git add .
+	@clear
+	@read -p "Digite a mensagem do commit: " MESSAGE; \
+	git commit -m "$$MESSAGE" && git push
 
 clean:
 	@rm -rf $(OBJ)
