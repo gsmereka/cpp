@@ -22,7 +22,6 @@ run: $(NAME)
 
 git:
 	@git add .
-	@clear
 	@read -p "Digite a mensagem do commit: " MESSAGE; \
 	git commit -m "$$MESSAGE" && git push
 
