@@ -21,27 +21,27 @@ Contact::Contact(std::string firstName, std::string lastName, std::string nickNa
 	this->firstName = firstName;
 }
 
-std::string Contact::getFirstName(void)
+std::string Contact::getFirstName(void) const
 {
 	return this->firstName;
 }
 
-std::string Contact::getPhoneNumber(void)
+std::string Contact::getPhoneNumber(void) const
 {
 	return this->phoneNumber;
 }
 
-std::string Contact::getNickName(void)
+std::string Contact::getNickName(void) const
 {
 	return this->nickName;
 }
 
-std::string Contact::getLastName(void)
+std::string Contact::getLastName(void) const
 {
 	return this->lastName;
 }
 
-std::string Contact::getDarkestSecret(void)
+std::string Contact::getDarkestSecret(void) const
 {
 	return this->darkestSecret;
 }

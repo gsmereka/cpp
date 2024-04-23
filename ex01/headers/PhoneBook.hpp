@@ -8,8 +8,8 @@ class PhoneBook
     public:
         PhoneBook(void);
         ~PhoneBook(void);
-        Contact getContact(unsigned int index);
-        bool add(void);
+        Contact getContact(unsigned int index) const;
+        void add(void);
         unsigned int getBookSize(void);
         static void search(PhoneBook const &book);
     private:
