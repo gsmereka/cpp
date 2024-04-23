@@ -6,8 +6,10 @@
 #include <string>
 #include <sys/types.h>
 
-PhoneBook::PhoneBook(void) : bookSize(0)
+PhoneBook::PhoneBook(void)
 {
+	bookIndex = 0;
+	bookLimit = 8;
 	return;
 }
 
@@ -21,43 +23,47 @@ Contact PhoneBook::getContact(unsigned int index) const
   return this->book[index];
 }
 
-unsigned int PhoneBook::getBookSize(void)
+unsigned int PhoneBook::getbookIndex(void) const
 {
-	return this->bookSize;
+	return this->bookIndex;
 }
 
 void PhoneBook::add(void)
 {
-	Contact newContact = getNewContact();
+	Contact 		newContact = getNewContact();
 
-	if (validateContact(newContact))
-	{
-		this->book[this->bookSize % 8] = newContact;
-		this->bookSize += 1;
+	if (!validateContact(newContact))
 		return;
-	}
-	return;
+	this->book[this->bookIndex % this->bookLimit] = newContact;
+	this->bookIndex += 1;
 }
 
 void PhoneBook::search(PhoneBook const &book)
 {
-	std::string	inputIndex;
+	unsigned int	indexLimit = book.bookIndex;
 	unsigned int	index;
+	std::string		input;
 
-	if (!book.bookSize)
+	if (indexLimit > book.bookLimit)
+		indexLimit = book.bookLimit;
+	if (!indexLimit)
 	{
 		std::cout << "The PHONEBOOK is empty!!\n" << std::endl;
 		return;
 	}
-	printContactsPreview(book);
+	printContactsPreview(book, indexLimit);
 	while (true)
 	{
 		std::cout << "Input contact's index wanted: ";
-		index = getIndexInput();
-		if (index != -1)
-			break;
+		std::cin >> input;
+		if	(isOnlyNumber(input))
+		{
+			index = (unsigned int)stoi(input);
+			if (index < indexLimit)
+				break;
+		}
 		std::cout << '\n';
-		std::cout << "Index must a positive number and betwen 0-8 range !!!\n";
+		std::cout << "Index Unavailable!\n";
 		std::cout << '\n';
 	}
 	printContactInfo(book.getContact(index));

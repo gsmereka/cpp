@@ -10,11 +10,12 @@ class PhoneBook
         ~PhoneBook(void);
         Contact getContact(unsigned int index) const;
         void add(void);
-        unsigned int getBookSize(void);
+        unsigned int getbookIndex(void) const;
         static void search(PhoneBook const &book);
     private:
         Contact book[8];
-        unsigned int bookSize;
+        unsigned int bookIndex;
+        unsigned int bookLimit;
 };
 
-#endif // !PHONEBOOK_HPP
+#endif

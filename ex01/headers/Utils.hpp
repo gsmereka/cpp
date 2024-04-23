@@ -2,16 +2,11 @@
 
 # include "PhoneBook.hpp"
 
-// void printHeader(void);
-// std::string getValueFromCIN(void);
-// bool validateNames(std::string const name);
-// void printListContacts(PhoneBook const &book);
-void	printContactInfo(Contact const &contact);
-// bool validateNumber(std::string const number);
-// bool validateContact(Contact const &newContact);
-void	printContactsPreview(PhoneBook const &book);
-int 	getIndexInput();
-bool 	validateContact(Contact const &newContact);
-Contact getNewContact(void);
+bool            isOnlyNumber(std::string str);
+void	        printContactInfo(Contact const &contact);
+bool            isEmpty(std::string const str);
+void	        printContactsPreview(PhoneBook const &book, unsigned int limit);
+bool 	        validateContact(Contact const &newContact);
+Contact         getNewContact(void);
 
 #endif

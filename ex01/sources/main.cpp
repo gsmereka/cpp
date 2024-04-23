@@ -3,6 +3,8 @@
 #include "../headers/Utils.hpp"
 #include <iostream>
 
+#include <stdio.h>
+
 int main(void)
 {
     std::string input;
@@ -18,7 +20,7 @@ int main(void)
         else if (input.compare("SEARCH") == 0)
             PhoneBook::search(book);
         else if (input.compare("EXIT") == 0)
-            return (0);
+            break ;
     }
     return (0);
 }

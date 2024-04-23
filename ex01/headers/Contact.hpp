@@ -13,11 +13,11 @@ class Contact
 		Contact(std::string firstName, std::string lastName, std::string nickName,
 				std::string phoneNumber, std::string darkestSecret);
 
-		std::string	getDarkestSecret() const;
-		std::string	getNickName() const;
-		std::string	getPhoneNumber() const;
-		std::string	getFirstName() const;
-		std::string	getLastName() const;
+		std::string	getDarkestSecret(void) const;
+		std::string	getNickName(void) const;
+		std::string	getPhoneNumber(void) const;
+		std::string	getFirstName(void) const;
+		std::string	getLastName(void) const;
 	private:
 		std::string firstName;
 		std::string lastName;
