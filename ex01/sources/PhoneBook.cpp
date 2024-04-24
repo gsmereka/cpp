@@ -1,10 +1,6 @@
 #include "../headers/Contact.hpp"
 #include "../headers/PhoneBook.hpp"
 #include "../headers/Utils.hpp"
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <sys/types.h>
 
 PhoneBook::PhoneBook(void)
 {

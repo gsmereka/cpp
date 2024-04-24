@@ -1,6 +1,7 @@
 #ifndef UTILS_HPP
-
 # include "PhoneBook.hpp"
+# include <iostream>
+# include <iomanip>
 
 bool            isOnlyNumber(std::string str);
 void	        printContactInfo(Contact const &contact);

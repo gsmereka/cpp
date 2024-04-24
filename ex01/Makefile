@@ -22,6 +22,7 @@ run: $(NAME)
 	clear && ./$(NAME)
 
 git:
+	rm $(NAME)
 	git add .
 	git status
 	@read -p "Digite a mensagem do commit: " MESSAGE; \

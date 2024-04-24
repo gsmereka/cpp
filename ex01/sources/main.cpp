@@ -1,9 +1,6 @@
 #include "../headers/Contact.hpp"
 #include "../headers/PhoneBook.hpp"
 #include "../headers/Utils.hpp"
-#include <iostream>
-
-#include <stdio.h>
 
 int main(void)
 {
