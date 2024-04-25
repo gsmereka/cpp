@@ -1,6 +1,6 @@
-NAME = brain
-FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC_FILES = $(wildcard ./*.cpp)
+NAME = violence
+# FLAGS = -Wall -Wextra -Werror -std=c++98
+SRC_FILES = $(wildcard ./sources/*.cpp)
 OBJ = obj
 OBJ_FILES = $(SRC_FILES:sources/%.cpp=$(OBJ)/%.o)
 
