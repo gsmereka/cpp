@@ -7,6 +7,7 @@ Zombie::Zombie(void)
 
 Zombie::~Zombie(void)
 {
+	std::cout << this->name << " died..." << std::endl;
 	return;
 }
 
