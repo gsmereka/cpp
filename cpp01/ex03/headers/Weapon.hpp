@@ -8,10 +8,10 @@ class Weapon
         Weapon(void);
         ~Weapon(void);
         Weapon(std::string name);
-        void setName(std::string name);
-        void announce(void);
+        void        setType(std::string type);
+        std::string getType(void);
     private:
-        std::string name;
+        std::string type;
 };
 
 

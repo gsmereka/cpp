@@ -8,15 +8,13 @@ class HumanA
     public:
         HumanA(void);
         ~HumanA(void);
-        HumanA(std::string name);
+        HumanA(std::string name, Weapon &weapon);
         void setName(std::string name);
+        void attack();
         void announce(void);
     private:
         std::string name;
+        Weapon  *weapon;
 };
-
-HumanA *newZombie(std::string name);
-void randomChump(std::string name);
-HumanA	*zombieHorde(int N, std::string name);
 
 #endif

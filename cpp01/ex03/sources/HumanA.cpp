@@ -11,13 +11,14 @@ HumanA::~HumanA(void)
 	return;
 }
 
-HumanA::HumanA(std::string name)
+HumanA::HumanA(std::string name, Weapon &weapon)
 {
 	this->name = name;
+    this->weapon = &weapon;
 }
 
-
-void	HumanA::setName(std::string name)
+void    HumanA::attack(void)
 {
-	this->name = name;
+    std::cout << this->name << "attacks with their" << weapon->getType() << std::endl;
+
 }
