@@ -9,7 +9,6 @@ class Harl
 		~Harl(void);
 		void complain(std::string const level);
 	private:
-		std::string const str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 		void debug(void);
 		void info(void);
 		void warning(void);

@@ -36,10 +36,10 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string const level)
 {
+	std::string const states[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void(Harl::*functions[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	
 	int	counter = 0;
-	for (int i = 0; level.compare(str[i]) != 0; i++)
+	for (int i = 0; level.compare(states[i]) != 0; i++)
 		counter++;
 	(this->*functions[counter])();
 }
