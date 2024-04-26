@@ -1,4 +1,4 @@
-NAME = violence
+NAME = replace
 # FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_FILES = $(wildcard ./sources/*.cpp)
 OBJ = obj
