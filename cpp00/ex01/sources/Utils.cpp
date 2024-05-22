@@ -20,7 +20,7 @@ void printContactInfo(Contact const &contact)
 
 void printWithLimit(std::string string)
 {
-	int limit = 10;
+	long unsigned int limit = 10;
 
 	if (string.length() >= limit)
 	{
@@ -29,6 +29,13 @@ void printWithLimit(std::string string)
 	}
 	std::cout << std::setw(10);
 	std::cout << string << "|";
+}
+
+std::string to_string(int value)
+{
+    std::stringstream ss;
+    ss << value;
+    return ss.str();
 }
 
 void printContactsPreview(PhoneBook const &book, unsigned int limit)
@@ -45,7 +52,7 @@ void printContactsPreview(PhoneBook const &book, unsigned int limit)
 	{
 		contact = book.getContact(i);
 		std::cout << "|";
-		printWithLimit(std::to_string(i));
+		printWithLimit(to_string(i));
 		printWithLimit(contact.getFirstName());
 		printWithLimit(contact.getLastName());
 		printWithLimit(contact.getNickName());
@@ -58,7 +65,7 @@ bool isOnlyNumber(std::string str)
 {
 	if (str.length() > 5)
 		return (false);
-	for (int a = 0; a < str.length(); a++)
+	for (long unsigned int a = 0; a < str.length(); a++)
 	{
 		if (!isdigit(str[a]))
 		{
@@ -72,7 +79,7 @@ bool isOnlyNumber(std::string str)
 bool isEmpty(std::string const str)
 {
 	bool	is_empty = true;
-	for (int c = 0; c < str.length(); c++)
+	for (long unsigned int c = 0; c < str.length(); c++)
 	{
 		if (!str[c])
 			break;

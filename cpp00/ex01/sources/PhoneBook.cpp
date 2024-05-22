@@ -54,7 +54,8 @@ void PhoneBook::search(PhoneBook const &book)
 		std::cin >> input;
 		if	(isOnlyNumber(input))
 		{
-			index = (unsigned int)stoi(input);
+			std::stringstream ss(input);
+			ss >> index;
 			if (index < indexLimit)
 				break;
 		}
