@@ -1,5 +1,5 @@
-NAME = newclass
-# FLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = fixed
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_FILES = $(wildcard ./sources/*.cpp)
 OBJ = obj
 OBJ_FILES = $(SRC_FILES:sources/%.cpp=$(OBJ)/%.o)
