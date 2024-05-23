@@ -13,10 +13,6 @@ ${OBJ}/%.o : sources/%.cpp
 	mkdir -p ${OBJ}
 	c++ $(FLAGS) -c $< -o $@
 
-newc:
-	@read -p "Digite o nome da Nova Classe:" MESSAGE; \
-	../../script/template.sh . "$$MESSAGE"
-
 run: $(NAME)
 	make re
 	clear && ./$(NAME)
