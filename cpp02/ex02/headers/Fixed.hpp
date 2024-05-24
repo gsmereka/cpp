@@ -25,18 +25,18 @@ class Fixed
 		static Fixed		&max(Fixed &value1, Fixed &value2);
 
 		// comparison
-		bool	operator>(Fixed const &rhs) const;
-		bool	operator<(Fixed const &rhs)const;
-		bool	operator>=(Fixed const &rhs)const;
-		bool	operator<=(Fixed const &rhs)const;
-		bool	operator==(Fixed const &rhs)const;
-		bool	operator!=(Fixed const &rhs)const;
+		bool	operator>(Fixed const &right_hand_side) const;
+		bool	operator<(Fixed const &right_hand_side)const;
+		bool	operator>=(Fixed const &right_hand_side)const;
+		bool	operator<=(Fixed const &right_hand_side)const;
+		bool	operator==(Fixed const &right_hand_side)const;
+		bool	operator!=(Fixed const &right_hand_side)const;
 
 		// arithmetic
-		Fixed	operator+(Fixed const &rhs);
-		Fixed	operator-(Fixed const &rhs);
-		Fixed	operator/(Fixed const &rhs);
-		Fixed	operator*(Fixed const &rhs);
+		Fixed	operator+(Fixed const &right_hand_side);
+		Fixed	operator-(Fixed const &right_hand_side);
+		Fixed	operator/(Fixed const &right_hand_side);
+		Fixed	operator*(Fixed const &right_hand_side);
 
 		// increment|decrement
 		Fixed	&operator++(void);
@@ -44,7 +44,7 @@ class Fixed
 		Fixed	operator++(int);
 		Fixed	operator--(int);
 	private:
-		int _value;
+		int _value_raw;
 		static const int _fractionalBits = 8;
 };
 

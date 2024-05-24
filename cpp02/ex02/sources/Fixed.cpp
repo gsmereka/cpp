@@ -4,7 +4,7 @@
 // CONSTRUCTORS AND DESTRUCTOR
 Fixed::Fixed(void) 
 {
-	_value = 0;
+	_value_raw = 0;
 }
 
 Fixed::Fixed(const Fixed &other)
@@ -16,19 +16,19 @@ Fixed &Fixed::operator = (const Fixed &obj)
 {
 	if (this != &obj)
 	{
-		this->_value = obj.getRawBits();
+		this->_value_raw = obj.getRawBits();
 	}
 	return (*this);
 }
 
 Fixed::Fixed(const int integer)
 {
-	this->_value = integer << _fractionalBits;
+	this->_value_raw = integer << _fractionalBits;
 }
 
 Fixed::Fixed(const float f)
 {
-	this->_value = static_cast<int>(roundf(f * (1 << _fractionalBits)));
+	this->_value_raw = static_cast<int>(roundf(f * (1 << _fractionalBits)));
 }
 
 Fixed::~Fixed(void)
@@ -39,22 +39,22 @@ Fixed::~Fixed(void)
 // METHODS
 int Fixed::getRawBits() const
 {
-	return _value;
+	return _value_raw;
 }
 
 void	Fixed::setRawBits(const int raw)
 {
-	this->_value = raw;
+	this->_value_raw = raw;
 }
 
 float	Fixed::toFloat (void) const
 {
-	return static_cast<float>(_value) / (1 << _fractionalBits);
+	return static_cast<float>(_value_raw) / (1 << _fractionalBits);
 }
 
 int	Fixed::toInt (void) const
 {
-	return (this->_value >> Fixed::_fractionalBits);
+	return (this->_value_raw >> Fixed::_fractionalBits);
 }
 
 // min|max
@@ -98,82 +98,87 @@ std::ostream & operator<<(std::ostream & outfile, const Fixed & fixed)
 
 // comparison
 
-bool	Fixed::operator>(Fixed const &rhs) const
+bool	Fixed::operator>(Fixed const &right_hand_side) const
 {
-	return (this->getRawBits() > rhs.getRawBits());
+	return (this->getRawBits() > right_hand_side.getRawBits());
 }
 
-bool	Fixed::operator>=(Fixed const &rhs) const
+bool	Fixed::operator>=(Fixed const &right_hand_side) const
 {
-	return (this->getRawBits() >= rhs.getRawBits());
+	return (this->getRawBits() >= right_hand_side.getRawBits());
 }
 
-bool	Fixed::operator<(Fixed const &rhs) const
+bool	Fixed::operator<(Fixed const &right_hand_side) const
 {
-	return (this->getRawBits() < rhs.getRawBits());
+	return (this->getRawBits() < right_hand_side.getRawBits());
 }
 
-bool	Fixed::operator<=(Fixed const &rhs) const
+bool	Fixed::operator<=(Fixed const &right_hand_side) const
 {
-	return (this->getRawBits() <= rhs.getRawBits());
+	return (this->getRawBits() <= right_hand_side.getRawBits());
 }
 
-bool	Fixed::operator==(Fixed const &rhs) const
+bool	Fixed::operator==(Fixed const &right_hand_side) const
 {
-	return (this->getRawBits() == rhs.getRawBits());
+	return (this->getRawBits() == right_hand_side.getRawBits());
 }
 
-bool	Fixed::operator!=(Fixed const &rhs) const
+bool	Fixed::operator!=(Fixed const &right_hand_side) const
 {
-	return (this->getRawBits() != rhs.getRawBits());
+	return (this->getRawBits() != right_hand_side.getRawBits());
 }
 
 
 // arithmetic
 
-Fixed Fixed::operator+(Fixed const &rhs)
+Fixed Fixed::operator+(Fixed const &right_hand_side)
 {
-	return (this->toFloat() + rhs.toFloat());
+	return (this->toFloat() + right_hand_side.toFloat());
 }
 
-Fixed Fixed::operator-(Fixed const &rhs)
+Fixed Fixed::operator-(Fixed const &right_hand_side)
 {
-	return (this->toFloat() - rhs.toFloat());
+	return (this->toFloat() - right_hand_side.toFloat());
 }
 
-Fixed Fixed::operator*(Fixed const &rhs)
+Fixed Fixed::operator*(Fixed const &right_hand_side)
 {
-	return (this->toFloat() * rhs.toFloat());
+	return (this->toFloat() * right_hand_side.toFloat());
 }
 
-Fixed Fixed::operator/(Fixed const &rhs)
+Fixed Fixed::operator/(Fixed const &right_hand_side)
 {
-	return (this->toFloat() / rhs.toFloat());
+	if (!right_hand_side.toFloat())
+	{
+		std::cout << "Can't divide by ";
+		return Fixed(0);
+	}
+	return (this->toFloat() / right_hand_side.toFloat());
 }
 
 // increment|decrement
 Fixed	&Fixed::operator++(void)
 {
-	this->_value++;
+	this->_value_raw++;
 	return (*this);
 }
 
 Fixed	&Fixed::operator--(void)
 {
-	this->_value--;
+	this->_value_raw--;
 	return (*this);
 }
 
 Fixed	Fixed::operator++(int)
 {
 	Fixed anchor(*this);
-	this->_value++;
+	this->_value_raw++;
 	return (anchor);
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed anchor(*this);
-	this->_value--;
+	this->_value_raw--;
 	return (anchor);
 }

@@ -15,12 +15,13 @@
 // 	return 0;
 // }
 
-
 int main()
 {
     Fixed a(2.5f);
     Fixed b(3.5f);
 
+	std::cout << a << " / " << b << " = " << (a / b) << std::endl;
+	
     // Ativando o manipulador std::boolalpha para imprimir true/false
     std::cout << std::boolalpha;
 
@@ -44,9 +45,11 @@ int main()
 
     // Demonstrando incremento e decremento
     std::cout << "a++ : " << a++ << " => " << a << std::endl;
+	
     std::cout << "++a : " << ++a << std::endl;
+	
     std::cout << "a-- : " << a-- << " => " << a << std::endl;
     std::cout << "--a : " << --a << std::endl;
-
+	
     return 0;
 }
