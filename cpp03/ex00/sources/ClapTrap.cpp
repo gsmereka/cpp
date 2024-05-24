@@ -15,6 +15,23 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap " << name << " destroyed!" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+	this->operator=(other);
+}
+
+ClapTrap &ClapTrap::operator = (const ClapTrap &obj)
+{
+	if (this != &obj)
+	{
+		this->name = obj.getName();
+		this->hitPoints = obj.getHitPoints();
+		this->energyPoints = obj.getEnergyPoints();
+		this->attackDamage = obj.getAttackDamage();
+	}
+	return (*this);
+}
+
 void ClapTrap::attack(const std::string& target)
 {
 	if (hitPoints <= 0 || energyPoints <= 0)
