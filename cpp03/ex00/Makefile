@@ -26,6 +26,7 @@ valgrind: $(NAME)
 	clear && valgrind ./$(NAME)
 
 git:
+	make fclean
 	git add .
 	git status
 	@read -p "Digite a mensagem do commit: " MESSAGE; \
