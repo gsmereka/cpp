@@ -32,11 +32,12 @@ int main()
     std::cout << "------------------------------" << std::endl;
     std::cout << "Testing deep copy" << std::endl;
     std::cout << "------------------------------" << std::endl;
-    Dog basic;
     {
-        Dog tmp = basic;
+        Dog basic;
+        {
+            Dog tmp = basic;
+        }
     }
-
     std::cout << "------------------------------" << std::endl;
     std::cout << "Cleaning up" << std::endl;
     std::cout << "------------------------------" << std::endl;
