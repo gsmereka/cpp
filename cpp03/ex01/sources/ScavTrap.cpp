@@ -45,10 +45,10 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (hitPoints <= 0 || energyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << name << " cannot attack!" << std::endl;
+		std::cout << "ScavTrap " << name << " gently cannot attack!" << std::endl;
 		return;
 	}
-	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " 
+	std::cout << "ScavTrap " << name << " gently attacks " << target << ", causing " 
 			  << attackDamage << " points of damage!" << std::endl;
 	energyPoints--;
 }
