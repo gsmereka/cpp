@@ -11,6 +11,9 @@ void	testing_construction_and_destruction(void)
 	std::cout << "Creating ScavTrap st(\"Scavvy\"):" << std::endl;
 	ScavTrap st("Scavvy");
 	std::cout << std::endl;
+	std::cout << "Creating FragTrap st(\"Fraggy\"):" << std::endl;
+	ScavTrap st("Fraggy");
+	std::cout << std::endl;
 }
 
 int main(void)
