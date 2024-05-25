@@ -5,22 +5,39 @@
 
 
 
-int main()
+int main(void)
 {
-    const Animal* animal = new Animal();
-    const Animal* dog = new Dog();
-    const Animal* cat = new Cat();
-    
-    std::cout << dog->getType() << " " << std::endl;
-    std::cout << cat->getType() << " " << std::endl;
-    
-    cat->makeSound();
-    dog->makeSound();
-    animal->makeSound();
-    
-    delete animal;
-    delete dog;
-    delete cat;
-    
+    const int arraySize = 10;
+    Animal* animals[arraySize];
+
+    std::cout << "------------------------------------------------------------------------------------------" << std::endl;
+    std::cout << "Creating half Dog and half Cat objects" << std::endl;
+    std::cout << "------------------------------------------------------------------------------------------" << std::endl;
+    for (int i = 0; i < arraySize / 2; ++i)
+    {
+        animals[i] = new Dog();
+    }
+    for (int i = arraySize / 2; i < arraySize; ++i)
+    {
+        animals[i] = new Cat();
+    }
+
+    std::cout << "------------------------------------------------------------------------------------------" << std::endl;
+    std::cout << "Demonstrating polymorphism and type checking" << std::endl;
+    std::cout << "------------------------------------------------------------------------------------------" << std::endl;
+    for (int i = 0; i < arraySize; ++i)
+    {
+        std::cout << animals[i]->getType() << " ";
+        animals[i]->makeSound();
+    }
+
+    std::cout << "------------------------------------------------------------------------------------------" << std::endl;
+    std::cout << "Cleaning up" << std::endl;
+    std::cout << "------------------------------------------------------------------------------------------" << std::endl;
+    for (int i = 0; i < arraySize; ++i)
+    {
+        delete animals[i];
+    }
+
     return 0;
 }
