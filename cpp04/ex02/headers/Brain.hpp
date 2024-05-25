@@ -5,13 +5,13 @@
 
 class Brain
 {
-    public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &other);
-        Brain& operator=(const Brain &other);
+	public:
+		Brain();
+		~Brain();
+		Brain(const Brain &other);
+		Brain& operator=(const Brain &other);
 	private:
-        std::string ideas[100];
+		std::string ideas[100];
 };
 
 #endif
