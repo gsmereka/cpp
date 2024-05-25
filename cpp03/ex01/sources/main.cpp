@@ -2,51 +2,44 @@
 #include "../headers/ScavTrap.hpp"
 #include <iostream>
 
-int main2()
+void	testing_construction_and_destruction(void)
 {
-    ClapTrap ct("Clappy");
-    ct.attack("target");
-    ct.takeDamage(5);
-    ct.beRepaired(3);
-    ct.showStatus();
-
-    ScavTrap st("Scavvy");
-    st.attack("target");
-    st.guardGate();
-    st.takeDamage(30);
-    st.beRepaired(20);
-    st.showStatus();
-
-    return 0;
+	std::cout << "Creating ClapTrap ct(\"Clappy\"):" << std::endl;
+	ClapTrap ct("Clappy");
+	std::cout << std::endl;
+	std::cout << "Creating ScavTrap st(\"Scavvy\"):" << std::endl;
+	ScavTrap st("Scavvy");
+	std::cout << std::endl;
 }
 
-int main() {
-    // Teste de construção e destruição
-    {
-        std::cout << "Creating ClapTrap ct(\"Clappy\"):" << std::endl;
-        ClapTrap ct("Clappy");
-        std::cout << "Creating ScavTrap st(\"Scavvy\"):" << std::endl;
-        ScavTrap st("Scavvy");
-    } // Aqui os destruidores serão chamados automaticamente
+int main(void)
+{
+	std::cout << "CONSTRUCTION / DESTRUCTION" << std::endl;
+	testing_construction_and_destruction();
+	std::cout << std::endl;
+	std::cout << "--------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
 
-    std::cout << std::endl;
-
-    // Testando funcionalidades do ClapTrap
+	std::cout << "TESTING CLAPTRAP" << std::endl;
     ClapTrap ct("Clappy");
     ct.attack("target");
     ct.takeDamage(5);
     ct.beRepaired(3);
     ct.showStatus();
+	std::cout << std::endl;
+	std::cout << "--------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
 
-    std::cout << std::endl;
-
-    // Testando funcionalidades do ScavTrap
+    std::cout << "TESTING SCAVTRAP" << std::endl;
     ScavTrap st("Scavvy");
     st.attack("target");
     st.guardGate();
     st.takeDamage(30);
     st.beRepaired(20);
     st.showStatus();
-
+	st.guardGate();
+	std::cout << std::endl;
+	std::cout << "--------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
     return 0;
 }

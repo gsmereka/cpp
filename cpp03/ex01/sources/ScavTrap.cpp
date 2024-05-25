@@ -16,7 +16,7 @@ ScavTrap::ScavTrap(const std::string& name)
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
-	std::cout << "ScavTrap Parameterized Constructor!" << std::endl;
+	std::cout << "ScavTrap Name Constructor!" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
