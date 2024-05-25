@@ -1,35 +1,21 @@
 #include "../headers/ClapTrap.hpp"
+#include "../headers/ScavTrap.hpp"
 #include <iostream>
 
 int main()
 {
-    ClapTrap Carlitos("Carlitos");
-    ClapTrap clapTrap(Carlitos);
-    clapTrap.showStatus();
+    ClapTrap ct("Clappy");
+    ct.attack("target");
+    ct.takeDamage(5);
+    ct.beRepaired(3);
+    ct.showStatus();
 
-    clapTrap.attack("Smoke");
-    clapTrap.showStatus();
-
-    clapTrap.takeDamage(5);
-    clapTrap.showStatus();
-
-    clapTrap.beRepaired(3);
-    clapTrap.showStatus();
-
-    clapTrap.attack("Bob");
-    clapTrap.showStatus();
-
-    clapTrap.takeDamage(10);
-    clapTrap.showStatus();
-
-    clapTrap.beRepaired(5);
-    clapTrap.showStatus();
-
-    std::cout << std::endl;
-    std::cout << "Name: " << clapTrap.getName() << std::endl;
-    std::cout << "Hit Points: " << clapTrap.getHitPoints() << std::endl;
-    std::cout << "Energy Points: " << clapTrap.getEnergyPoints() << std::endl;
-    std::cout << "Attack Damage: " << clapTrap.getAttackDamage() << std::endl;
+    ScavTrap st("Scavvy");
+    st.attack("target");
+    st.guardGate();
+    st.takeDamage(30);
+    st.beRepaired(20);
+    st.showStatus();
 
     return 0;
 }
