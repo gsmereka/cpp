@@ -1,2 +1,2 @@
 # cpp
-A set of C++ exercises
+A set of C++ exercices
