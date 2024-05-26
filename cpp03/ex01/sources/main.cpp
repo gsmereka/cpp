@@ -26,6 +26,8 @@ int main(void)
     ct.takeDamage(5);
     ct.beRepaired(3);
     ct.showStatus();
+	ClapTrap ClapCopy = ct;
+	ClapCopy.showStatus();
 	std::cout << std::endl;
 	std::cout << "--------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
@@ -38,6 +40,8 @@ int main(void)
     st.beRepaired(20);
     st.showStatus();
 	st.guardGate();
+	ScavTrap scavyCopy = st;
+	scavyCopy.showStatus();
 	std::cout << std::endl;
 	std::cout << "--------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;

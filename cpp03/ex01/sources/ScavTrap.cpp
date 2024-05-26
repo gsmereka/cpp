@@ -27,9 +27,6 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap &other)
 	: ClapTrap(other)
 {
-	this->hitPoints = other.getHitPoints();
-	this->energyPoints = other.getEnergyPoints();
-	this->attackDamage = other.getAttackDamage();
 	std::cout << "ScavTrap Copy Constructor!" << std::endl;
 }
 

@@ -12,7 +12,7 @@ void	testing_construction_and_destruction(void)
 	ScavTrap st("Scavvy");
 	std::cout << std::endl;
 	std::cout << "Creating FragTrap st(\"Fraggy\"):" << std::endl;
-	ScavTrap st("Fraggy");
+	FragTrap ft("Fraggy");
 	std::cout << std::endl;
 }
 
@@ -30,6 +30,8 @@ int main(void)
     ct.takeDamage(5);
     ct.beRepaired(3);
     ct.showStatus();
+	ClapTrap clapCopy = ct;
+	clapCopy.showStatus();
 	std::cout << std::endl;
 	std::cout << "--------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
@@ -42,6 +44,8 @@ int main(void)
     st.beRepaired(20);
     st.showStatus();
 	st.guardGate();
+	ScavTrap scavyCopy = st;
+	scavyCopy.showStatus();
 	std::cout << std::endl;
 	std::cout << "--------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
@@ -53,6 +57,8 @@ int main(void)
     ft.takeDamage(40);
     ft.beRepaired(30);
     ft.showStatus();
+	FragTrap fragCopy = ft;
+	fragCopy.showStatus();
 	std::cout << std::endl;
 	std::cout << "--------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
