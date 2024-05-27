@@ -1,60 +1,59 @@
 #include "../headers/Bureaucrat.hpp"
 
-// #include "Bureaucrat.hpp"
-
-int main(void)
+int main()
 {
 	try
 	{
-		Bureaucrat bob("Bob", -2);
+		Bureaucrat bob("Bob", 2);
+		std::cout << bob << std::endl;
+
+		bob.incrementGrade();
+		std::cout << bob << std::endl;
+
+		std::cout << "The next line should throw an exception:" << std::endl;
+		bob.incrementGrade();
+		std::cout << bob << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;;
 	}
-	// std::cout << bob << std::endl;
-	return 0;
-}
 
-int main2()
-{
-    try {
-        Bureaucrat bob("Bob", 2);
-        std::cout << bob << std::endl;
+	try
+	{
+		Bureaucrat john("John", 149);
+		std::cout << john << std::endl;
 
-        bob.incrementGrade();
-        std::cout << bob << std::endl;
+		john.decrementGrade();
+		std::cout << john << std::endl;
+		std::cout << "The next line should throw an exception:" << std::endl;
+		john.decrementGrade();
+		std::cout << john << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;;
+	}
 
-        bob.incrementGrade(); // This should throw an exception
-        std::cout << bob << std::endl;
-    } catch (std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
+	try
+	{
+		std::cout << "The next line should throw an exception:" << std::endl;
+		Bureaucrat invalidHigh("InvalidHigh", 0);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;;
+	}
 
-    try {
-        Bureaucrat john("John", 149);
-        std::cout << john << std::endl;
+	try
+	{
+		std::cout << "The next line should throw an exception:" << std::endl;
+		Bureaucrat invalidLow("InvalidLow", 151);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl << std::endl;;
+	}
 
-        john.decrementGrade();
-        std::cout << john << std::endl;
-
-        john.decrementGrade(); // This should throw an exception
-        std::cout << john << std::endl;
-    } catch (std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-    try {
-        Bureaucrat invalidHigh("InvalidHigh", 0); // This should throw an exception
-    } catch (std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-    try {
-        Bureaucrat invalidLow("InvalidLow", 151); // This should throw an exception
-    } catch (std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-    return 0;
+	return (0);
 }

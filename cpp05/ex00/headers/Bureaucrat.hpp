@@ -11,15 +11,16 @@ class Bureaucrat
 		Bureaucrat(const std::string &name, int grade);
 		~Bureaucrat(void);
 		Bureaucrat& operator=(const Bureaucrat &other);
-		int getGrade(void) const;
-		const std::string &getName(void) const;
-		void	incrementGrade(void);
-		void	decrementGrade(void);
+		int 				getGrade(void) const;
+		const std::string	&getName(void) const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
 	private:
 		const std::string	name;
 		int					grade;
 };
 
+// STREAM OVERLOADS
 std::ostream &operator<<(std::ostream &outfile, Bureaucrat const &instance);
 
 // Exception classes

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "../headers/Bureaucrat.hpp"
 
+// Constructors 
+
 Bureaucrat::Bureaucrat(void) : name("Default"), grade(100)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -34,11 +36,14 @@ Bureaucrat &Bureaucrat::operator = (const Bureaucrat &obj)
 	return (*this);
 }
 
+// Destructor
+
 Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
+// GETERS
 const std::string& Bureaucrat::getName() const
 {
 	return name;
@@ -48,6 +53,8 @@ int Bureaucrat::getGrade() const
 {
 	return grade;
 }
+
+// Increment | decrement
 
 void Bureaucrat::incrementGrade()
 {
