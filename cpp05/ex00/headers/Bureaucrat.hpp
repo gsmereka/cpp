@@ -15,6 +15,18 @@ class Bureaucrat
 		const std::string	&getName(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
+
+		// exceptions classes
+		class	GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+		class	GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
 	private:
 		const std::string	name;
 		int					grade;
@@ -23,21 +35,5 @@ class Bureaucrat
 // STREAM OVERLOADS
 std::ostream &operator<<(std::ostream &outfile, Bureaucrat const &instance);
 
-// Exception classes
-class GradeTooHighException : public std::exception
-{
-	const char* what() const throw()
-	{
-		return "Grade is too high!";
-	}
-};
-
-class GradeTooLowException : public std::exception
-{
-	const char* what() const throw()
-	{
-		return "Grade is too low!";
-	}
-};
 
 #endif
