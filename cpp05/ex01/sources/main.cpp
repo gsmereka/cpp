@@ -13,7 +13,7 @@ int main(void)
 	testSuccessfullySignForm();
 	testInvalidHighGradeForm();
 	testInvalidLowGradeForm();
-	return 0;
+	return (0);
 }
 
 static void testFailToSignForm()
