@@ -23,7 +23,7 @@ class Bureaucrat
 		// new function
 		void				signForm(Form &form) const;
 
-		// exeptions
+		// exceptions classes
 		class	GradeTooHighException : public std::exception
 		{
 			public:

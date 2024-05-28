@@ -3,13 +3,13 @@
 // Constructors
 Form::Form() : name("Default Form"), signedStatus(false), gradeToSign(10), gradeToExecute(10)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "\033[32mDefault Form constructor called\033[0m\033[0m" << std::endl;
 }
 
 Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
     : name(name), signedStatus(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-    std::cout << "Initialized constructor called" << std::endl;
+    std::cout << "\033[32mInitialized Form constructor called\033[0m" << std::endl;
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
     if (gradeToSign > 150 || gradeToExecute > 150)
@@ -17,17 +17,20 @@ Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
 }
 
 Form::Form(const Form &other)
-    : name(other.name), signedStatus(other.signedStatus), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
+    : name(other.getName()), signedStatus(other.isSigned()), gradeToSign(other.getGradeToSign()), gradeToExecute(other.getGradeToExecute())
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "\033[32mForm Copy constructor called\033[0m" << std::endl;
 }
 
 Form &Form::operator=(const Form &other)
 {
-    std::cout << "Copy assingment constructor called" << std::endl;
+    std::cout << "\033[32mForm Copy assingment constructor called\033[0m" << std::endl;
     if (this != &other)
     {
-        this->signedStatus = other.signedStatus;
+        const_cast<std::string&>(this->name) = other.getName();
+        this->signedStatus = other.isSigned();
+		const_cast<int&>(this->gradeToSign) = other.getGradeToSign();
+		const_cast<int&>(this->gradeToExecute) = other.getGradeToExecute();
     }
     return *this;
 }
@@ -35,7 +38,7 @@ Form &Form::operator=(const Form &other)
 // destructor
 Form::~Form()
 {
-    std::cout << "Default destructor called" << std::endl;
+    std::cout << "\033[31mDefault Form destructor called\033[0m" << std::endl;
 }
 
 
@@ -70,7 +73,7 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 }
 
 
-// Exeptions
+// exceptions
 const char *Form::GradeTooHighException::what() const throw()
 {
     return "Form grade is too high!";

@@ -5,17 +5,17 @@
 
 Bureaucrat::Bureaucrat(void) : name("Default"), grade(100)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "\033[32mDefault Bureaucrat constructor called\033[0m" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.getName()), grade(other.getGrade())
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "\033[32mBureaucrat Copy constructor called\033[0m" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
-	std::cout << "Name and Grade constructor called" << std::endl;
+	std::cout << "\033[32mInitialized Bureaucrat constructor called\033[0m" << std::endl;
 	if (grade < 1)
 	{
 		throw GradeTooHighException();
@@ -28,9 +28,10 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(g
 
 Bureaucrat &Bureaucrat::operator = (const Bureaucrat &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "\033[32mBureaucrat Copy assignment operator called\033[0m" << std::endl;
 	if (this != &obj)
 	{
+		const_cast<std::string&>(this->name) = obj.getName();
 		grade = obj.getGrade();
 	}
 	return (*this);
@@ -40,7 +41,7 @@ Bureaucrat &Bureaucrat::operator = (const Bureaucrat &obj)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "\033[31mBureaucrat Destructor Called\033[0m" << std::endl;
 }
 
 // GETERS
@@ -55,6 +56,8 @@ int Bureaucrat::getGrade() const
 }
 
 // Increment | decrement
+
+#include <cstdio>
 
 void Bureaucrat::incrementGrade()
 {
@@ -88,15 +91,15 @@ void Bureaucrat::signForm(Form &form) const
     try
     {
         form.beSigned(*this);
-        std::cout << name << " signed " << form.getName() << std::endl;
+        std::cout << "\033[34m" << name << " signed " << form.getName() << "\033[0m" << std::endl;
     }
     catch (const std::exception &e)
     {
-        std::cout << name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+        std::cout << "\033[33m" << name << " couldn’t sign " << form.getName() << " because " << e.what() << "\033[0m" << std::endl;
     }
 }
 
-// Exeptions
+// exceptions
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Form grade is too high!";

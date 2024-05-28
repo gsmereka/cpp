@@ -9,39 +9,39 @@ class Bureaucrat;
 
 class Form
 {
-    public:
-        Form();
-        Form(const std::string &name, int gradeToSign, int gradeToExecute);
-        Form(const Form &other);
-        ~Form();
+	public:
+		Form();
+		Form(const std::string &name, int gradeToSign, int gradeToExecute);
+		Form(const Form &other);
+		~Form();
 
-        Form &operator=(const Form &other);
+		Form &operator=(const Form &other);
 
-        const std::string &getName() const;
-        bool isSigned() const;
-        int getGradeToSign() const;
-        int getGradeToExecute() const;
+		const std::string &getName() const;
+		bool isSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 
-        void beSigned(const Bureaucrat &bureaucrat);
+		void beSigned(const Bureaucrat &bureaucrat);
 
-        // needs to be here to avoid redeclaration
-        class GradeTooHighException : public std::exception 
-        {
-        public:
-            const char *what() const throw();
-        };
+		// exceptions classes
+		class GradeTooHighException : public std::exception 
+		{
+		public:
+			const char *what() const throw();
+		};
 
-        class GradeTooLowException : public std::exception
-        {
-        public:
-            const char *what() const throw();
-        };
+		class GradeTooLowException : public std::exception
+		{
+		public:
+			const char *what() const throw();
+		};
 
-    private:
-        const std::string name;
-        bool signedStatus;
-        const int gradeToSign;
-        const int gradeToExecute;
+	private:
+		const std::string name;
+		bool signedStatus;
+		const int gradeToSign;
+		const int gradeToExecute;
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &form);
