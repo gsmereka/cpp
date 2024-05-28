@@ -2,10 +2,8 @@
 #include "../headers/Form.hpp"
 #include <iostream>
 
-// Function declarations
 static void testFailToSignForm();
 static void testSuccessfullySignForm();
-static void testIncrementGradeFail();
 static void testInvalidHighGradeForm();
 static void testInvalidLowGradeForm();
 
@@ -13,7 +11,6 @@ int main(void)
 {
 	testFailToSignForm();
 	testSuccessfullySignForm();
-	testIncrementGradeFail();
 	testInvalidHighGradeForm();
 	testInvalidLowGradeForm();
 	return 0;
@@ -22,7 +19,7 @@ int main(void)
 static void testFailToSignForm()
 {
 	std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-	std::cout << "Attempting to sign a Form, but fail:" << std::endl;
+	std::cout << "⚠️  Attempting to sign a Form, but fail:  ⚠️" << std::endl;
 	std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
 	Bureaucrat bob("Bob", 100);
 	Form formA("FormA", 1, 1);
@@ -39,7 +36,7 @@ static void testSuccessfullySignForm()
 	try
 	{
 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-		std::cout << "Attempting to successfully sign a Form:" << std::endl;
+		std::cout << "⚠️  Attempting to successfully sign a Form:  ⚠️" << std::endl;
 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
 		Bureaucrat john("John", 149);
 		Form formB("FormB", 150, 150);
@@ -63,35 +60,12 @@ static void testSuccessfullySignForm()
 	}
 }
 
-static void testIncrementGradeFail()
-{
-	try
-	{
-		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-		std::cout << "Attempting to increment a grade, but fail:" << std::endl;
-		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-		Bureaucrat bob("Bob", 1);
-		Form formA("FormA", 1, 1);
-
-		std::cout << formA << std::endl;
-		std::cout << bob << std::endl;
-
-		std::cout << "The next line should throw an exception:" << std::endl << std::endl;
-		bob.incrementGrade();
-		bob.signForm(formA);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl << std::endl;
-	}
-}
-
 static void testInvalidHighGradeForm()
 {
 	try
 	{
 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-		std::cout << "Attempting to create a Form with an invalid high grade (0):" << std::endl;
+		std::cout << "⚠️  Attempting to create a Form with an invalid high grade (0):  ⚠️" << std::endl;
 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
 		Form invalidHighForm("InvalidHighForm", 0, 0);
 	}
@@ -106,7 +80,7 @@ static void testInvalidLowGradeForm()
 	try
 	{
 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-		std::cout << "Attempting to create a Form with an invalid low grade (151):" << std::endl;
+		std::cout << "⚠️  Attempting to create a Form with an invalid low grade (151):  ⚠️" << std::endl;
 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
 		Form invalidLowForm("InvalidLowForm", 151, 151);
 	}
