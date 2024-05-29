@@ -86,28 +86,28 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat &b)
 // New function
 void Bureaucrat::signForm(AForm &form) const
 {
-    try
-    {
-        form.beSigned(*this);
-        std::cout << "\033[34m" << name << " signed " << form.getName() << "\033[0m" << std::endl;
-    }
-    catch (const std::exception &e)
-    {
-        std::cout << "\033[33m" << name << " couldn’t sign " << form.getName() << " because " << e.what() << "\033[0m" << std::endl;
-    }
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "\033[34m" << name << " signed " << form.getName() << "\033[0m" << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "\033[33m" << name << " couldn’t sign " << form.getName() << " because " << e.what() << "\033[0m" << std::endl;
+	}
 }
 
 void Bureaucrat::executeForm(AForm const &form) const
 {
-    try
-    {
-        form.execute(*this);
-        std::cout << name << " executed " << form.getName() << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        std::cout << name << " couldn’t execute " << form.getName() << " because " << e.what() << std::endl;
-    }
+	try
+	{
+		form.execute(*this);
+		std::cout << name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << name << " couldn’t execute " << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 // exceptions

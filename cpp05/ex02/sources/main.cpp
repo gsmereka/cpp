@@ -5,132 +5,170 @@
 #include "../headers/ShrubberyCreationForm.hpp"
 #include <iostream>
 
+static void testFailToSignShrubberyCreationForm();
+static void testSuccessfullySignShrubberyCreationForm();
 
-int main()
+static void testFailToSignRobotomyRequestForm();
+static void testSuccessfullySignRobotomyRequestForm();
+
+static void testFailToSignPresidentialPardonForm();
+static void testSuccessfullySignPresidentialPardonForm();
+
+int main(void)
+{
+    testFailToSignShrubberyCreationForm();
+    testSuccessfullySignShrubberyCreationForm();
+
+    testFailToSignRobotomyRequestForm();
+    testSuccessfullySignRobotomyRequestForm();
+
+    testFailToSignPresidentialPardonForm();
+    testSuccessfullySignPresidentialPardonForm();
+
+    return (0);
+}
+
+static void testFailToSignShrubberyCreationForm()
+{
+    std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+    std::cout << "⚠️  Attempting to sign a ShrubberyCreationForm, but fail:  ⚠️" << std::endl;
+    std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+    Bureaucrat bob("Bob", 150);
+    ShrubberyCreationForm form("Home");
+
+    std::cout << form << std::endl;
+    std::cout << bob << std::endl;
+
+    std::cout << "The next line should throw an exception:" << std::endl << std::endl;
+    try {
+        bob.signForm(form);
+    } catch (const std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+static void testSuccessfullySignShrubberyCreationForm()
 {
     try
     {
-        Bureaucrat bob("Bob", 137);
-        ShrubberyCreationForm shrubbery("home");
-        bob.signForm(shrubbery);
-        bob.executeForm(shrubbery);
+        std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+        std::cout << "⚠️  Attempting to successfully sign a ShrubberyCreationForm:  ⚠️" << std::endl;
+        std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+        Bureaucrat john("John", 140);
+        ShrubberyCreationForm form("Garden");
+
+        std::cout << form << std::endl;
+
+        john.incrementGrade();
+        std::cout << john << std::endl;
+
+        std::cout << "John attempts to sign ShrubberyCreationForm:" << std::endl;
+        john.signForm(form);
+        std::cout << form << std::endl;
+
+        std::cout << "John attempts to sign ShrubberyCreationForm again:" << std::endl;
+        john.signForm(form);
+        std::cout << form << std::endl;
     }
     catch (const std::exception &e)
     {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
-
-    try
-    {
-        Bureaucrat john("John", 45);
-        RobotomyRequestForm robotomy("Bender");
-        john.signForm(robotomy);
-        john.executeForm(robotomy);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        Bureaucrat alice("Alice", 5);
-        PresidentialPardonForm pardon("Ford Prefect");
-        alice.signForm(pardon);
-        alice.executeForm(pardon);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-    return 0;
 }
 
-// static void testFailToSignForm();
-// static void testSuccessfullySignForm();
-// static void testInvalidHighGradeForm();
-// static void testInvalidLowGradeForm();
+static void testFailToSignRobotomyRequestForm()
+{
+    std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+    std::cout << "⚠️  Attempting to sign a RobotomyRequestForm, but fail:  ⚠️" << std::endl;
+    std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+    Bureaucrat bob("Bob", 100);
+    RobotomyRequestForm form("Home");
 
-// int main(void)
-// {
-// 	testFailToSignForm();
-// 	testSuccessfullySignForm();
-// 	testInvalidHighGradeForm();
-// 	testInvalidLowGradeForm();
-// 	return (0);
-// }
+    std::cout << form << std::endl;
+    std::cout << bob << std::endl;
 
-// static void testFailToSignForm()
-// {
-// 	std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 	std::cout << "⚠️  Attempting to sign a AForm, but fail:  ⚠️" << std::endl;
-// 	std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 	Bureaucrat bob("Bob", 100);
-// 	AForm formA("FormA", 1, 1);
+    std::cout << "The next line should throw an exception:" << std::endl << std::endl;
+    try {
+        bob.signForm(form);
+    } catch (const std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
 
-// 	std::cout << formA << std::endl;
-// 	std::cout << bob << std::endl;
+static void testSuccessfullySignRobotomyRequestForm()
+{
+    try
+    {
+        std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+        std::cout << "⚠️  Attempting to successfully sign a RobotomyRequestForm:  ⚠️" << std::endl;
+        std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+        Bureaucrat john("John", 72);
+        RobotomyRequestForm form("Garden");
 
-// 	std::cout << "The next line should throw an exception:" << std::endl << std::endl;
-// 	bob.signForm(formA);
-// }
+        std::cout << form << std::endl;
 
-// static void testSuccessfullySignForm()
-// {
-// 	try
-// 	{
-// 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 		std::cout << "⚠️  Attempting to successfully sign a AForm:  ⚠️" << std::endl;
-// 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 		Bureaucrat john("John", 149);
-// 		AForm formB("FormB", 150, 150);
+        john.incrementGrade();
+        std::cout << john << std::endl;
 
-// 		std::cout << formB << std::endl;
+        std::cout << "John attempts to sign RobotomyRequestForm:" << std::endl;
+        john.signForm(form);
+        std::cout << form << std::endl;
 
-// 		john.decrementGrade();
-// 		std::cout << john << std::endl;
+        std::cout << "John attempts to sign RobotomyRequestForm again:" << std::endl;
+        john.signForm(form);
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
 
-// 		std::cout << "John attempts to sign FormB:" << std::endl;
-// 		john.signForm(formB);
-// 		std::cout << formB << std::endl;
 
-// 		std::cout << "John attempts to sign FormB again:" << std::endl;
-// 		john.signForm(formB);
-// 		std::cout << formB << std::endl;
-// 	}
-// 	catch (const std::exception &e)
-// 	{
-// 		std::cerr << "Exception: " << e.what() << std::endl;
-// 	}
-// }
+static void testFailToSignPresidentialPardonForm()
+{
+    std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+    std::cout << "⚠️  Attempting to sign a PresidentialPardonForm, but fail:  ⚠️" << std::endl;
+    std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+    Bureaucrat bob("Bob", 100);
+    PresidentialPardonForm form("Home");
 
-// static void testInvalidHighGradeForm()
-// {
-// 	try
-// 	{
-// 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 		std::cout << "⚠️  Attempting to create a AForm with an invalid high grade (0):  ⚠️" << std::endl;
-// 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 		AForm invalidHighForm("InvalidHighForm", 0, 0);
-// 	}
-// 	catch (const std::exception &e)
-// 	{
-// 		std::cerr << "Exception: " << e.what() << std::endl;
-// 	}
-// }
+    std::cout << form << std::endl;
+    std::cout << bob << std::endl;
 
-// static void testInvalidLowGradeForm()
-// {
-// 	try
-// 	{
-// 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 		std::cout << "⚠️  Attempting to create a AForm with an invalid low grade (151):  ⚠️" << std::endl;
-// 		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-// 		AForm invalidLowForm("InvalidLowForm", 151, 151);
-// 	}
-// 	catch (const std::exception &e)
-// 	{
-// 		std::cerr << "Exception: " << e.what() << std::endl;
-// 	}
-// }
+    std::cout << "The next line should throw an exception:" << std::endl << std::endl;
+    try {
+        bob.signForm(form);
+    } catch (const std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+static void testSuccessfullySignPresidentialPardonForm()
+{
+    try
+    {
+        std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+        std::cout << "⚠️  Attempting to successfully sign a PresidentialPardonForm:  ⚠️" << std::endl;
+        std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+        Bureaucrat john("John", 25);
+        PresidentialPardonForm form("Garden");
+
+        std::cout << form << std::endl;
+
+        john.incrementGrade();
+        std::cout << john << std::endl;
+
+        std::cout << "John attempts to sign PresidentialPardonForm:" << std::endl;
+        john.signForm(form);
+        std::cout << form << std::endl;
+
+        std::cout << "John attempts to sign PresidentialPardonForm again:" << std::endl;
+        john.signForm(form);
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}

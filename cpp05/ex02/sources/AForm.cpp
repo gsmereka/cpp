@@ -81,12 +81,12 @@ const char *AForm::FormNotSignedException::what() const throw()
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-    return "AForm grade is too low!";
+    return "Form grade is too low!";
 }
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-    return "Grade too high!";
+    return "Form Grade too high!";
 }
 
 // Stream overload

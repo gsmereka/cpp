@@ -6,17 +6,18 @@
 
 class RobotomyRequestForm : public AForm
 {
-public:
-    RobotomyRequestForm(const std::string &target);
-    RobotomyRequestForm(const RobotomyRequestForm &other);
-    ~RobotomyRequestForm();
+	public:
+		RobotomyRequestForm(const std::string &target);
+		RobotomyRequestForm(const RobotomyRequestForm &other);
+		~RobotomyRequestForm();
 
-    RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 
-    void execute(Bureaucrat const &executor) const;
+		void execute(Bureaucrat const &executor) const;
 
-private:
-    const std::string target;
+	private:
+		RobotomyRequestForm();
+		const std::string target;
 };
 
 #endif

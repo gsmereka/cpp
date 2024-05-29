@@ -1,13 +1,13 @@
 #include "../headers/PresidentialPardonForm.hpp"
 #include <iostream>
 
+// Constructor
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
     : AForm("Presidential Pardon Form", 25, 5), target(target) {}
 
+// Copy
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
     : AForm(other), target(other.target) {}
-
-PresidentialPardonForm::~PresidentialPardonForm() {}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
@@ -18,6 +18,11 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
     return *this;
 }
 
+// Destructor
+PresidentialPardonForm::~PresidentialPardonForm() {}
+
+
+// Action
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
     if (!isSigned())
