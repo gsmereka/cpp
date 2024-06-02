@@ -47,19 +47,22 @@ int main(void)
 // ShrubberyCreationForm
 static void testFailToSignShrubberyCreationForm()
 {
-	std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-	std::cout << "⚠️  Attempting to sign a ShrubberyCreationForm, but fail:  ⚠️" << std::endl;
-	std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
-	Bureaucrat bob("Bob", 150);
-	ShrubberyCreationForm form("Home");
+	try
+	{
+		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+		std::cout << "⚠️  Attempting to sign a ShrubberyCreationForm, but fail:  ⚠️" << std::endl;
+		std::cout << "\n------------------------------------------------------------------------------\n" << std::endl;
+		Bureaucrat bob("Bob", 150);
+		ShrubberyCreationForm form("Home");
 
-	std::cout << form << std::endl;
-	std::cout << bob << std::endl;
+		std::cout << form << std::endl;
+		std::cout << bob << std::endl;
 
-	std::cout << "The next line should throw an exception:" << std::endl << std::endl;
-	try {
+		std::cout << "The next line should throw an exception:" << std::endl << std::endl;
 		bob.signForm(form);
-	} catch (const std::exception &e) {
+	}
+	catch (const std::exception &e)
+	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 }

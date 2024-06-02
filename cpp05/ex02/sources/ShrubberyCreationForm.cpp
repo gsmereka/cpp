@@ -35,13 +35,13 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw std::ios_base::failure("Failed to open file");
 	}
 	outfile << "      X\n";
-    outfile << "     XXX\n";
-    outfile << "    XXXXX\n";
-    outfile << "   XXXXXXX     X\n";
-    outfile << "  XXXXXXXXX   XXX\n";
-    outfile << " XXXXXXXXXXX XXXXX\n";
-    outfile << "      X     XXXXXXX\n";
-    outfile << "      X        X\n";
-    outfile << "************************\n";
+	outfile << "     XXX\n";
+	outfile << "    XXXXX\n";
+	outfile << "   XXXXXXX     X\n";
+	outfile << "  XXXXXXXXX   XXX\n";
+	outfile << " XXXXXXXXXXX XXXXX\n";
+	outfile << "      X     XXXXXXX\n";
+	outfile << "      X        X\n";
+	outfile << "************************\n";
 	outfile.close();
 }
