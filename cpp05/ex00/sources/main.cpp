@@ -42,7 +42,6 @@ static void testSucessToCreateBureaucrat()
 	
 	try
 	{
-		std::cout << "The next line should throw an exception:" << std::endl << std::endl;
 		Bureaucrat bob("Bob", 1);
 
 		std::cout << bob << std::endl;
