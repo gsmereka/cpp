@@ -4,49 +4,61 @@
 Intern::Intern() {}
 
 // Copy Constructor
-Intern::Intern(const Intern &other) {
-    *this = other;
+Intern::Intern( Intern &other)
+{
+	*this = other;
 }
 
 // Assignment Operator
-Intern &Intern::operator=(const Intern &other) {
-    (void)other;
-    return *this;
+Intern &Intern::operator=( Intern &other)
+{
+	(void)other;
+	return *this;
 }
 
 // Destructor
 Intern::~Intern() {}
 
-// Function to create ShrubberyCreationForm
-AForm* Intern::createShrubbery(const std::string &target) {
-    return new ShrubberyCreationForm(target);
+// Form Creators
+AForm* Intern::createShrubbery( std::string target)
+{
+	return new ShrubberyCreationForm(target);
 }
 
-// Function to create RobotomyRequestForm
-AForm* Intern::createRobotomy(const std::string &target) {
-    return new RobotomyRequestForm(target);
+AForm* Intern::createRobotomy( std::string target)
+{
+	return new RobotomyRequestForm(target);
 }
 
-// Function to create PresidentialPardonForm
-AForm* Intern::createPardon(const std::string &target) {
-    return new PresidentialPardonForm(target);
+AForm* Intern::createPardon( std::string target)
+{
+	return new PresidentialPardonForm(target);
+}
+
+AForm* Intern::returnNull( std::string target)
+{
+	(void)target;
+	return NULL;
 }
 
 // makeForm function
-AForm* Intern::makeForm(const std::string &formName, const std::string &target) {
-    FormCreation forms[] = {
-        { "shrubbery creation", &Intern::createShrubbery },
-        { "robotomy request", &Intern::createRobotomy },
-        { "presidential pardon", &Intern::createPardon }
+AForm *Intern::makeForm(std::string formName, std::string target)
+{
+    AForm *(Intern::*functions[4])(std::string target) = {
+        &Intern::createShrubbery,
+        &Intern::createRobotomy,
+        &Intern::createPardon,
+		&Intern::returnNull
+    };
+    
+    std::string formNames[3] = {
+        "shrubbery creation",
+        "robotomy request",
+        "presidential pardon"
     };
 
-    for (size_t i = 0; i < sizeof(forms) / sizeof(forms[0]); ++i) {
-        if (forms[i].name == formName) {
-            std::cout << "Intern creates " << formName << std::endl;
-            return forms[i].create(target);
-        }
-    }
-
-    std::cout << "Error: Form name " << formName << " not recognized." << std::endl;
-    return nullptr;
+    int index = 0;
+    while (index < 3 && formName.compare(formNames[index]))
+		index++;
+    return (this->*functions[index])(target);
 }

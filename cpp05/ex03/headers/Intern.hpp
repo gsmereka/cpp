@@ -8,25 +8,21 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-class Intern
-{
-	public:
-		Intern();
-		Intern(const Intern &other);
-		Intern &operator=(const Intern &other);
-		~Intern();
+	class Intern
+	{
+		public:
+			Intern();
+			Intern(Intern &other);
+			Intern &operator=(Intern &other);
+			~Intern();
 
-		AForm* makeForm(const std::string &formName, const std::string &target);
+			AForm	*makeForm(std::string formName, std::string target);
 
-	private:
-		struct FormCreation {
-			std::string name;
-			AForm* (*create)(const std::string &target);
-		};
-
-		static AForm* createShrubbery(const std::string &target);
-		static AForm* createRobotomy(const std::string &target);
-		static AForm* createPardon(const std::string &target);
-};
+		private:
+			AForm	*createShrubbery(std::string target);
+			AForm	*createRobotomy(std::string target);
+			AForm	*createPardon(std::string target);
+			AForm	*returnNull( std::string target);
+	};
 
 #endif // INTERN_HPP
