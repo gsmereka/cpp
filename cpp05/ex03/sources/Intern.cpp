@@ -12,7 +12,7 @@ Intern::Intern( Intern &other)
 // Assignment Operator
 Intern &Intern::operator=( Intern &other)
 {
-	(void)other;
+	*this = other;
 	return *this;
 }
 
@@ -44,21 +44,21 @@ AForm* Intern::returnNull( std::string target)
 // makeForm function
 AForm *Intern::makeForm(std::string formName, std::string target)
 {
-    AForm *(Intern::*functions[4])(std::string target) = {
-        &Intern::createShrubbery,
-        &Intern::createRobotomy,
-        &Intern::createPardon,
+	AForm	*(Intern::*functions[4])(std::string target) = {
+		&Intern::createShrubbery,
+		&Intern::createRobotomy,
+		&Intern::createPardon,
 		&Intern::returnNull
-    };
-    
-    std::string formNames[3] = {
-        "shrubbery creation",
-        "robotomy request",
-        "presidential pardon"
-    };
+	};
+	
+	std::string	formNames[3] = {
+		"shrubbery creation",
+		"robotomy request",
+		"presidential pardon"
+	};
 
-    int index = 0;
-    while (index < 3 && formName.compare(formNames[index]))
+	int index = 0;
+	while (index < 3 && formName.compare(formNames[index]))
 		index++;
-    return (this->*functions[index])(target);
+	return (this->*functions[index])(target);
 }
