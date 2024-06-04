@@ -12,7 +12,10 @@ Intern::Intern( Intern &other)
 // Assignment Operator
 Intern &Intern::operator=( Intern &other)
 {
-	*this = other;
+    if (this != &other)
+    {
+		return *this;
+    }
 	return *this;
 }
 
