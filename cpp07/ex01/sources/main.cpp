@@ -3,12 +3,14 @@
 
 // Sample function to be used with iter - prints the element
 template <typename T>
-void printElement(T& element) {
+void printElement(T& element)
+{
     std::cout << element << " ";
 }
 
 // Sample function to increment an integer element
-void increment(int& element) {
+void increment(int& element)
+{
     ++element;
 }
 
