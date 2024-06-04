@@ -2,11 +2,13 @@
 #include <cstdlib>
 #include <ctime>
 
-Base* generate(void) {
+Base* generate(void)
+{
     srand(time(0));
     int choice = rand() % 3;
 
-    switch (choice) {
+    switch (choice)
+    {
         case 0:
             return new A();
         case 1:
