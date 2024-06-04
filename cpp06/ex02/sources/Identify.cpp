@@ -30,14 +30,12 @@ void identify(Base &p)
 		std::cout <<  "A" << std::endl;
 		return ;
 	}	catch(...) {}
-    // std::cout <<  "exception at A" << std::endl;
 	try
 	{
 		B b = dynamic_cast<B&>(p);
 		std::cout <<  "B" << std::endl;
 		return ;
 	}	catch(...) {}
-    // std::cout <<  "exception at B" << std::endl;
 	try
 	{
 		C c = dynamic_cast<C&>(p);
