@@ -123,5 +123,9 @@ bool ScalarConverter::checkPseudoLiterals(const std::string &input)
 // Private constructor and destructor
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::ScalarConverter(const ScalarConverter&) {}
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter&) { return *this; }
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter&other)
+{
+	(void)other;
+	return *this;
+}
 ScalarConverter::~ScalarConverter() {}
