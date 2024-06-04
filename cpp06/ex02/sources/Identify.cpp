@@ -1,6 +1,5 @@
 #include "../headers/Base.hpp"
 #include <iostream>
-#include <typeinfo> 
 
 void identify(Base *p)
 {
