@@ -18,4 +18,14 @@ public:
     void addRange(Iterator begin, Iterator end);
 };
 
+// Template implementation needs to be included in the header
+template<typename Iterator>
+void Span::addRange(Iterator begin, Iterator end) {
+    if (_numbers.size() + std::distance(begin, end) > _maxSize) {
+        throw std::out_of_range("Span cannot accommodate all elements");
+    }
+
+    _numbers.insert(_numbers.end(), begin, end);
+}
+
 #endif // SPAN_H
