@@ -26,4 +26,4 @@ class ScalarConverter
 		static bool checkPseudoLiterals(const std::string &input);
 };
 
-#endif // SCALARCONVERTER_HPP
+#endif
