@@ -13,7 +13,8 @@ void iter(T* array, size_t length, Operation op)
 template<typename T, typename Operation>
 void iter(const T* array, size_t length, Operation op)
 {
-    for (size_t i = 0; i < length; ++i) {
+    for (size_t i = 0; i < length; ++i)
+    {
         op(array[i]);
     }
 }
