@@ -4,28 +4,23 @@
 #include <vector>
 #include <stdexcept>
 
-class Span {
-private:
-    unsigned int _maxSize;
-    std::vector<int> _numbers;
+class Span
+{
+	public:
 
-public:
-    Span(unsigned int size);
-    void addNumber(int number);
-    int shortestSpan() const;
-    int longestSpan() const;
-    template<typename Iterator>
-    void addRange(Iterator begin, Iterator end);
+		Span();
+		Span(Span const & src);
+		Span (int n);
+		~Span();
+
+		Span &	operator=(Span const &rhs);
+
+		void	addNumber(int element);
+		int	    shortestSpan(void);
+		int		longestSpan(void);
+	private:
+		int		            maxSize;
+		std::vector<int>	numbers;
 };
 
-// Template implementation needs to be included in the header
-template<typename Iterator>
-void Span::addRange(Iterator begin, Iterator end) {
-    if (_numbers.size() + std::distance(begin, end) > _maxSize) {
-        throw std::out_of_range("Span cannot accommodate all elements");
-    }
-
-    _numbers.insert(_numbers.end(), begin, end);
-}
-
-#endif // SPAN_H
+#endif
