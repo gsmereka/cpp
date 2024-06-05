@@ -1,8 +1,7 @@
 #ifndef SPAN_H
-#define SPAN_H
-
-#include <vector>
-#include <stdexcept>
+# define SPAN_H
+# include <vector>
+# include <stdexcept>
 
 class Span
 {

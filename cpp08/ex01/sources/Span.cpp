@@ -6,6 +6,8 @@ Span::Span(int size) : maxSize(size)
     numbers.reserve(size);
 }
 
+Span::~Span() {}
+
 void Span::addNumber(int number)
 {
     if (static_cast<int>(numbers.size()) >= maxSize)
@@ -29,7 +31,8 @@ int	Span::shortestSpan(void)
     for (size_t i = 2; i < sortedNumbers.size(); ++i)
     {
         int span = sortedNumbers[i] - sortedNumbers[i - 1];
-        if (span < minSpan) {
+        if (span < minSpan)
+        {
             minSpan = span;
         }
     }
