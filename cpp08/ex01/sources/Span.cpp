@@ -30,10 +30,10 @@ int	Span::shortestSpan(void)
 	int minSpan = sortedNumbers[1] - sortedNumbers[0];
 	for (size_t i = 2; i < sortedNumbers.size(); ++i)
 	{
-		int span = sortedNumbers[i] - sortedNumbers[i - 1];
-		if (span < minSpan)
+		int temp_span = sortedNumbers[i] - sortedNumbers[i - 1];
+		if (temp_span < minSpan)
 		{
-			minSpan = span;
+			minSpan = temp_span;
 		}
 	}
 
@@ -47,8 +47,8 @@ int Span::longestSpan()
 		throw std::out_of_range("Cannot find span with less than 2 numbers");
 	}
 
-	int min = *std::min_element(numbers.begin(), numbers.end());
-	int max = *std::max_element(numbers.begin(), numbers.end());
+	int minNumber = *std::min_element(numbers.begin(), numbers.end());
+	int maxNumber = *std::max_element(numbers.begin(), numbers.end());
 
-	return max - min;
+	return maxNumber - minNumber;
 }

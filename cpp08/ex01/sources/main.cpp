@@ -22,8 +22,8 @@ int main(void)
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
 	catch (const std::out_of_range &e)
 	{
@@ -38,8 +38,8 @@ int main(void)
 		sp.addNumber(0);
 		sp.addNumber(42);
 		sp.addNumber(42);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
 	catch (const std::out_of_range &e)
 	{
@@ -54,10 +54,10 @@ int main(void)
 		sp.addNumber(0);
 		sp.addNumber(-42);
 		sp.addNumber(42);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::out_of_range& e)
+	catch (const std::out_of_range &e)
 	{
 		std::cout << "Erro: " << e.what() << std::endl;
 	}
@@ -68,14 +68,14 @@ int main(void)
 		Span sp = Span(42000);
 		for (int i = 0; i < 42000; i++)
 			sp.addNumber(i);
-		std::cout << sp.longestSpan() << std::endl;
-		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::out_of_range& e)
+	catch (const std::out_of_range &e)
 	{
 		std::cout << "Erro: " << e.what() << std::endl;
 	}
-	printHeader("TEST: EXCEEDED QUANTITY");
+	printHeader("TEST: EXCEEDED MAX NUMBERS");
 	try
 	{
 		Span sp = Span(5);
@@ -86,24 +86,24 @@ int main(void)
 		sp.addNumber(20);
 		sp.addNumber(40);
 		sp.addNumber(12);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::out_of_range& e)
+	catch (const std::out_of_range &e)
 	{
 		std::cout << "Erro: " << e.what() << std::endl;
 	}
 
-	printHeader("TEST: EXCEEDED QUANTITY");
+	printHeader("TEST: EXCEEDED MAX NUMBERS");
 	try
 	{
 		Span sp = Span(10000);
 		for (int i = 0; i < 20000; i++)
 			sp.addNumber(i + 2);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::out_of_range& e)
+	catch (const std::out_of_range &e)
 	{
 		std::cout << "Erro: " << e.what() << std::endl;
 	}
