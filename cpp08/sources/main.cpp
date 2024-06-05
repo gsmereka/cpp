@@ -35,11 +35,11 @@ int main(void)
 		std::list<int>				lst;
 		std::list<int>::iterator	valueFind;
 
-		lst.push_back(10);
-		lst.push_back(44);
-		lst.push_back(30);
-        std::cout << "Trying to find 44" << std::endl;
-		valueFind = ::easyFind(lst, 44);
+		lst.push_back(4);
+		lst.push_back(42);
+		lst.push_back(2);
+        std::cout << "Trying to find 42" << std::endl;
+		valueFind = ::easyFind(lst, 42);
 		std::cout << "Value find: " << *valueFind << std::endl;
 
         std::cout << "Trying to find 1" << std::endl;
