@@ -17,6 +17,9 @@ class Span
 		void	addNumber(int element);
 		int	    shortestSpan(void);
 		int		longestSpan(void);
+
+		// EXTRA
+		void	addNumbers(const std::vector<int>& newNumbers);
 	private:
 		int		            maxSize;
 		std::vector<int>	numbers;

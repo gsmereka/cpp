@@ -27,7 +27,7 @@ int main(void)
 	}
 	catch (const std::out_of_range &e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 
 	printHeader("TEST: REPEATED NUMBERS");
@@ -43,7 +43,7 @@ int main(void)
 	}
 	catch (const std::out_of_range &e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
 	printHeader("TEST: NEGATIVE VALUE");
@@ -59,21 +59,23 @@ int main(void)
 	}
 	catch (const std::out_of_range &e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 
 	printHeader("TEST: MANY NUMBERS");
 	try
 	{
 		Span sp = Span(42000);
+		std::vector<int> newNumbers;
 		for (int i = 0; i < 42000; i++)
-			sp.addNumber(i);
+			newNumbers.push_back(i);
+		sp.addNumbers(newNumbers);
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::out_of_range &e)
+	catch (const std::exception &e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cerr << "Error: " << e.what() << std::endl;
 	}
 	printHeader("TEST: EXCEEDED MAX NUMBERS");
 	try
@@ -91,21 +93,23 @@ int main(void)
 	}
 	catch (const std::out_of_range &e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 
 	printHeader("TEST: EXCEEDED MAX NUMBERS");
 	try
 	{
-		Span sp = Span(10000);
-		for (int i = 0; i < 20000; i++)
-			sp.addNumber(i + 2);
+		Span sp = Span(1000);
+		std::vector<int> newNumbers;
+		for (int i = 0; i < 42000; i++)
+			newNumbers.push_back(i);
+		sp.addNumbers(newNumbers);
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	}
 	catch (const std::out_of_range &e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	return (0);
 }

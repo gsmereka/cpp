@@ -8,11 +8,22 @@ Span::Span(int size) : maxSize(size)
 
 Span::~Span() {}
 
+
+void Span::addNumbers(const std::vector<int>& newNumbers)
+{
+    if (static_cast<int>(numbers.size() + newNumbers.size()) > maxSize)
+    {
+        throw std::out_of_range("Adding these numbers would exceed the span's capacity");
+    }
+
+    numbers.insert(numbers.end(), newNumbers.begin(), newNumbers.end());
+}
+
 void Span::addNumber(int number)
 {
 	if (static_cast<int>(numbers.size()) >= maxSize)
 	{
-		throw std::out_of_range("Span is full");
+		throw std::out_of_range("Adding this number would exceed the span's capacity");
 	}
 	numbers.push_back(number);
 }
