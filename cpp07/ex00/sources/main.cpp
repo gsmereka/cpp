@@ -19,8 +19,8 @@ int main(void)
 
 	std::cout << "\n------------------------------------------------------------\n" << std::endl;
 
-	std::string c = "chaine1";
-	std::string d = "chaine2";
+	std::string c = "Banana";
+	std::string d = "Papaia";
 
 	std::cout << "Before Swap " << std::endl;
 	std::cout << "c = " << c << ", d = " << d << std::endl;
