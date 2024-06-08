@@ -3,6 +3,7 @@
 #include "Complex.hpp"
 
 static int testingComplexDataType(void);
+
 int main(void)
 {
 	std::cout << "\n------------------------------" << std::endl;
