@@ -15,11 +15,11 @@ int main(void)
 		std::vector<int>::iterator	valueFind;
 
 		std::cout << "Trying to find 42" << std::endl;
-		valueFind = ::easyFind(vec, 42);
+		valueFind = easyFind(vec, 42);
 		std::cout << "Value find: " << *valueFind << std::endl;
 
 		std::cout << "Trying to find 5" << std::endl;
-		valueFind = ::easyFind(vec, 5);
+		valueFind = easyFind(vec, 5);
 		std::cout << "Value find: " << *valueFind << std::endl;
 	}
 	catch (const std::exception& e)
@@ -40,11 +40,11 @@ int main(void)
 		lst.push_back(42);
 		lst.push_back(2);
 		std::cout << "Trying to find 42" << std::endl;
-		valueFind = ::easyFind(lst, 42);
+		valueFind = easyFind(lst, 42);
 		std::cout << "Value find: " << *valueFind << std::endl;
 
 		std::cout << "Trying to find 1" << std::endl;
-		valueFind = ::easyFind(lst, 1);
+		valueFind = easyFind(lst, 1);
 		std::cout << "Value find: " << *valueFind << std::endl;;
 	}
 	catch (const std::exception& e)
