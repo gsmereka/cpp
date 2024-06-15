@@ -25,7 +25,7 @@ public:
 private:
     // Helper function to insert an element in a sorted list
     template <typename Container>
-    void insertSorted(Container &sortedList, typename Container::value_type value);
+    void insertSorted(Container &listA, Container &listB);
 
     // Main Ford-Johnson sort function
     template <typename Container>
