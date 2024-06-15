@@ -1,26 +1,28 @@
 #ifndef PMERGEME_HPP
-# define PMERGEME_HPP
+#define PMERGEME_HPP
 
-# include <vector>
-# include <deque>
+#include <vector>
+#include <deque>
 
 class PmergeMe
 {
-	public:
-		PmergeMe();
-		PmergeMe(const PmergeMe &other);
-		PmergeMe &operator=(const PmergeMe &other);
-		~PmergeMe();
+public:
+    PmergeMe();
+    PmergeMe(const PmergeMe &other);
+    PmergeMe &operator=(const PmergeMe &other);
+    ~PmergeMe();
 
-		void sort(std::vector<int> &sequence);
-		void sort(std::deque<int> &sequence);
+    void sort(std::vector<int> &sequence);
+    void sort(std::deque<int> &sequence);
 
-	private:
-		void mergeInsertSort(std::vector<int> &sequence, int left, int right);
-		void mergeInsertSort(std::deque<int> &sequence, int left, int right);
+private:
+    // Helper function to insert an element in a sorted list
+    template <typename Container>
+    void insertSorted(Container &sortedList, typename Container::value_type value);
 
-		void merge(std::vector<int> &sequence, int left, int mid, int right);
-		void merge(std::deque<int> &sequence, int left, int mid, int right);
+    // Main Ford-Johnson sort function
+    template <typename Container>
+    void fordJohnsonSort(Container &sequence);
 };
 
 #endif // PMERGEME_HPP

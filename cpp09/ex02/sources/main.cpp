@@ -49,9 +49,15 @@ int main(int argc, char **argv)
 	}
 	std::cout << std::endl;
 
-	std::cout << "After: ";
+	std::cout << "Vector After: ";
 	for (size_t i = 0; i < vectorSequence.size(); ++i) {
 		std::cout << vectorSequence[i] << " ";
+	}
+	std::cout << std::endl;
+
+	std::cout << "Deque After: ";
+	for (size_t i = 0; i < dequeSequence.size(); ++i) {
+		std::cout << dequeSequence[i] << " ";
 	}
 	std::cout << std::endl;
 

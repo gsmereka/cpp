@@ -8,9 +8,8 @@ PmergeMe::PmergeMe(const PmergeMe &other) {
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
-    if (this != &other)
-    {
-        return *this;
+    if (this != &other) {
+        // Implement copying of data members if there are any
     }
     return *this;
 }
@@ -18,85 +17,61 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
 PmergeMe::~PmergeMe() {}
 
 void PmergeMe::sort(std::vector<int> &sequence) {
-    mergeInsertSort(sequence, 0, sequence.size() - 1);
+    fordJohnsonSort(sequence);
 }
 
 void PmergeMe::sort(std::deque<int> &sequence) {
-    mergeInsertSort(sequence, 0, sequence.size() - 1);
+    fordJohnsonSort(sequence);
 }
 
-void PmergeMe::mergeInsertSort(std::vector<int> &sequence, int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-        mergeInsertSort(sequence, left, mid);
-        mergeInsertSort(sequence, mid + 1, right);
-        merge(sequence, left, mid, right);
-    }
+// Helper function to insert an element in a sorted list
+template <typename Container>
+void PmergeMe::insertSorted(Container &sortedList, typename Container::value_type value)
+{
+    typename Container::iterator it = std::lower_bound(sortedList.begin(), sortedList.end(), value);
+    sortedList.insert(it, value);
 }
 
-void PmergeMe::mergeInsertSort(std::deque<int> &sequence, int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-        mergeInsertSort(sequence, left, mid);
-        mergeInsertSort(sequence, mid + 1, right);
-        merge(sequence, left, mid, right);
-    }
-}
+// Main Ford-Johnson sort function
+template <typename Container>
+void PmergeMe::fordJohnsonSort(Container &sequence)
+{
+    if (sequence.size() < 2)
+		return;
+    Container listA;
+    Container listB;
 
-void PmergeMe::merge(std::vector<int> &sequence, int left, int mid, int right) {
-    std::vector<int> leftPart(sequence.begin() + left, sequence.begin() + mid + 1);
-    std::vector<int> rightPart(sequence.begin() + mid + 1, sequence.begin() + right + 1);
-
-    std::vector<int>::size_type i = 0, j = 0, k = left;
-    while (i < leftPart.size() && j < rightPart.size()) {
-        if (leftPart[i] <= rightPart[j]) {
-            sequence[k] = leftPart[i];
-            i++;
-        } else {
-            sequence[k] = rightPart[j];
-            j++;
+    // Step 1: Divide the list into pairs and sort each pair
+    for (typename Container::size_type i = 0; i < sequence.size(); i += 2)
+	{
+        if (i + 1 < sequence.size())
+		{
+            if (sequence[i] < sequence[i + 1])
+			{
+                listA.push_back(sequence[i]);
+                listB.push_back(sequence[i + 1]);
+            }
+			else
+			{
+                listA.push_back(sequence[i + 1]);
+                listB.push_back(sequence[i]);
+            }
         }
-        k++;
-    }
-
-    while (i < leftPart.size()) {
-        sequence[k] = leftPart[i];
-        i++;
-        k++;
-    }
-
-    while (j < rightPart.size()) {
-        sequence[k] = rightPart[j];
-        j++;
-        k++;
-    }
-}
-
-void PmergeMe::merge(std::deque<int> &sequence, int left, int mid, int right) {
-    std::deque<int> leftPart(sequence.begin() + left, sequence.begin() + mid + 1);
-    std::deque<int> rightPart(sequence.begin() + mid + 1, sequence.begin() + right + 1);
-
-    std::deque<int>::size_type i = 0, j = 0, k = left;
-    while (i < leftPart.size() && j < rightPart.size()) {
-        if (leftPart[i] <= rightPart[j]) {
-            sequence[k] = leftPart[i];
-            i++;
-        } else {
-            sequence[k] = rightPart[j];
-            j++;
+		else
+		{
+            listA.push_back(sequence[i]);
         }
-        k++;
     }
 
-    while (i < leftPart.size()) {
-        sequence[k] = leftPart[i];
-        i++;
-        k++;
+    // Step 2: Sort list A
+    std::sort(listA.begin(), listA.end());
+
+    // Step 3: Insert elements from list B into list A
+    for (typename Container::const_iterator it = listB.begin(); it != listB.end(); ++it)
+	{
+        insertSorted(listA, *it);
     }
 
-    while (j < rightPart.size()) {
-        sequence[k] = rightPart[j];
-        j++;
-        k++;
-    }
+    // Copy sorted elements back to the original sequence
+    std::copy(listA.begin(), listA.end(), sequence.begin());
 }
