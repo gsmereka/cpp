@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     RPN calculator;
     try
     {
-        int result = calculator.evaluate(argv[1]);
+        double result = calculator.evaluate(argv[1]);
         std::cout << result << std::endl;
     }
     catch (const std::exception &e)
