@@ -28,14 +28,14 @@ int main(int argc, char **argv)
 
 	PmergeMe sorter;
 
-	// Using std::vector
+	// Using vector
 	std::vector<int> vectorSequence = sequence;
 	clock_t start = clock();
 	sorter.sort(vectorSequence);
 	clock_t end = clock();
 	double vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 
-	// Using std::deque
+	// Using deque
 	std::deque<int> dequeSequence(sequence.begin(), sequence.end());
 	start = clock();
 	sorter.sort(dequeSequence);
@@ -43,26 +43,31 @@ int main(int argc, char **argv)
 	double dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 
 	// Output results
-	std::cout << "Before: ";
+	std::cout << BLUE "Before: " << RES;
 	for (size_t i = 0; i < sequence.size(); ++i) {
 		std::cout << sequence[i] << " ";
 	}
 	std::cout << std::endl;
+	std::cout << "\n---------------------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
 
-	std::cout << "Vector After: ";
+	std::cout << BLUE << "Vector After: " << RES;
 	for (size_t i = 0; i < vectorSequence.size(); ++i) {
 		std::cout << vectorSequence[i] << " ";
 	}
 	std::cout << std::endl;
+	std::cout << "\n---------------------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
 
-	std::cout << "Deque After: ";
+	std::cout << BLUE "Deque After: " << RES;
 	for (size_t i = 0; i < dequeSequence.size(); ++i) {
 		std::cout << dequeSequence[i] << " ";
 	}
 	std::cout << std::endl;
-
-	std::cout << "Time to process a range of " << sequence.size() << " elements with std::vector: " << vectorTime << " s" << std::endl;
-	std::cout << "Time to process a range of " << sequence.size() << " elements with std::deque: " << dequeTime << " s" << std::endl;
+	std::cout << "\n---------------------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << BLUE << "Time to process a range of " << RES << sequence.size() << " elements with vector: " << GREEN << vectorTime << " s" << RES << std::endl;
+	std::cout << BLUE << "Time to process a range of " << RES << sequence.size() << " elements with deque: " << YELLOW << dequeTime << " s" << RES << std::endl;
 
 	return 0;
 }
