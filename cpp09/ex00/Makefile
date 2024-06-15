@@ -19,7 +19,7 @@ run: $(NAME)
 
 valgrind: $(NAME)
 	make re
-	clear && valgrind ./$(NAME) data.csv
+	clear && valgrind ./$(NAME) input.csv
 
 git:
 	make fclean
