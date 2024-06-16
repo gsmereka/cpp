@@ -3,7 +3,12 @@
 #include <deque>
 #include <sstream>
 #include <ctime>
+#include <cerrno>
+#include <cstdlib>
+#include <limits>
 #include "../headers/PmergeMe.hpp"
+
+static int strToNumber(std::string str);
 
 int main(int argc, char **argv)
 {
@@ -16,9 +21,17 @@ int main(int argc, char **argv)
 	std::vector<int> sequence;
 	for (int i = 1; i < argc; ++i)
 	{
-		int number;
+		std::string	numberStr;
+		int			number;
+
 		std::istringstream splitStream(argv[i]);
-		if (!(splitStream >> number) || number < 0)
+		if (!(splitStream >> numberStr))
+		{
+			std::cerr << "Error" << std::endl;
+			return 1;
+		}
+		number = strToNumber(numberStr);
+		if (number < 0)
 		{
 			std::cerr << "Error" << std::endl;
 			return 1;
@@ -70,4 +83,26 @@ int main(int argc, char **argv)
 	std::cout << BLUE << "Time to process a range of " << RES << sequence.size() << " elements with deque: " << YELLOW << dequeTime << " s" << RES << std::endl;
 
 	return 0;
+}
+
+
+static int strToNumber(std::string str)
+{
+    char *remainder;
+    errno = 0;
+    long value = std::strtol(str.c_str(), &remainder, 10);
+
+    if (*remainder != '\0')
+    {
+        return -1;
+    }
+    if (errno == ERANGE || value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+    {
+        return -1;
+    }
+    if (str.find('.') != std::string::npos || str.find('e') != std::string::npos || str.find('E') != std::string::npos)
+    {
+        return -1;
+    }
+    return static_cast<int>(value);
 }
