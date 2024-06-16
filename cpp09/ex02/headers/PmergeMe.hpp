@@ -13,23 +13,20 @@
 
 class PmergeMe
 {
-public:
-    PmergeMe();
-    PmergeMe(const PmergeMe &other);
-    PmergeMe &operator=(const PmergeMe &other);
-    ~PmergeMe();
+	public:
+		PmergeMe();
+		PmergeMe(const PmergeMe &other);
+		PmergeMe &operator=(const PmergeMe &other);
+		~PmergeMe();
 
-    void sort(std::vector<int> &sequence);
-    void sort(std::deque<int> &sequence);
+		void sort(std::vector<int> &sequence);
+		void sort(std::deque<int> &sequence);
 
-private:
-    // Helper function to insert an element in a sorted list
-    template <typename Container>
-    void insertSorted(Container &listA, Container &listB);
-
-    // Main Ford-Johnson sort function
-    template <typename Container>
-    void fordJohnsonSort(Container &sequence);
+	private:
+		template <typename Container>
+		void insertSorted(Container &listA, Container &listB);
+		template <typename Container>
+		void fordJohnsonSort(Container &sequence);
 };
 
-#endif // PMERGEME_HPP
+#endif

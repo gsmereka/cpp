@@ -22,4 +22,4 @@ class RPN
 		double	performOperation(char operation, double operand1, double operand2);
 };
 
-#endif // RPN_HPP
+#endif
