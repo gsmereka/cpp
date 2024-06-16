@@ -74,19 +74,19 @@ void PmergeMe::insertSorted(Container &listA, Container &listB)
 }
 
 template <typename Container>
-typename Container::iterator binarySearch(Container &listA, const typename Container::value_type &value)
+typename Container::iterator	binarySearch(Container &listA, typename Container::value_type &value)
 {
-    typename Container::iterator first = listA.begin();
-    typename Container::iterator last = listA.end();
-    typename Container::iterator middle;
+	typename Container::iterator first = listA.begin();
+	typename Container::iterator last = listA.end();
+	typename Container::iterator middle;
 
-    while (first < last)
-    {
-        middle = first + std::distance(first, last) / 2;
-        if (*middle < value)
-            first = middle + 1;
-        else
-            last = middle;
-    }
-    return first;
+	while (first < last)
+	{
+		middle = first + std::distance(first, last) / 2;
+		if (*middle < value)
+			first = middle + 1;
+		else
+			last = middle;
+	}
+	return first;
 }
