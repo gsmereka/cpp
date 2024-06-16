@@ -29,4 +29,7 @@ class PmergeMe
 		void fordJohnsonSort(Container &sequence);
 };
 
+template <typename Container>
+typename Container::iterator binarySearch(Container &listA, const typename Container::value_type &value);
+
 #endif

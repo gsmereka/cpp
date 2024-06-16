@@ -66,9 +66,27 @@ void PmergeMe::fordJohnsonSort(Container &sequence)
 template <typename Container>
 void PmergeMe::insertSorted(Container &listA, Container &listB)
 {
-    for (typename Container::const_iterator it = listB.begin(); it != listB.end(); ++it)
+	for (typename Container::iterator it = listB.begin(); it != listB.end(); ++it)
 	{
-        typename Container::iterator insertPos = std::lower_bound(listA.begin(), listA.end(), *it);
-        listA.insert(insertPos, *it);
+		typename Container::iterator insertPos = binarySearch(listA, *it);
+		listA.insert(insertPos, *it);
+	}
+}
+
+template <typename Container>
+typename Container::iterator binarySearch(Container &listA, const typename Container::value_type &value)
+{
+    typename Container::iterator first = listA.begin();
+    typename Container::iterator last = listA.end();
+    typename Container::iterator middle;
+
+    while (first < last)
+    {
+        middle = first + std::distance(first, last) / 2;
+        if (*middle < value)
+            first = middle + 1;
+        else
+            last = middle;
     }
+    return first;
 }
