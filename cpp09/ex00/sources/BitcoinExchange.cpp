@@ -40,7 +40,7 @@ bool	BitcoinExchange::isValidDateFormat(const std::string &dateStr)
 
 bool	BitcoinExchange::isValidYear(int year)
 {
-	if (year >= 2008 && year <= 2023)
+	if (year >= 2009 && year <= 2024)
 		return (true);
 	return (false);
 }
@@ -142,7 +142,7 @@ bool BitcoinExchange::isValidDate(const std::string &line)
 	}
 	if ((year == 2009) && (month == 1) && (day == 1))
 	{
-		std::cout << OLD_DATE << std::endl;
+		std::cout << BAD_INPUT << line << std::endl;
 		return (false);
 	}
 	if (!isValidYear(year) || !isValidMonth(month) || !isValidDay(day, month, year))
