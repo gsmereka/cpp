@@ -15,7 +15,6 @@
 # define RES "\x1b[0m"
 # define BAD_INPUT RED "Error: bad input => " RES
 # define FUTURE_DATE RED "Error: the date is in the future." RES
-# define ERROR_ARGC RED "Error: invalid number of arguments!" RES
 # define ERROR_FILE RED "Error: could not open file." RES
 # define NEGATIVE_NUMBER RED "Error: not a positive number." RES
 # define LARGE_NUMBER RED "Error: too large a number." RES

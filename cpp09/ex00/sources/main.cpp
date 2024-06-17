@@ -4,8 +4,8 @@ int main(int argc, char* argv[])
 {
 	if (argc != 2)
 	{
-		std::cerr << "Usage: " << argv[0] << " <input_filename>" << std::endl;
-		return (std::cout << ERROR_ARGC << std::endl, false);
+		std::cerr << YELLOW << "Usage: " << argv[0] << " input.csv" << RES << std::endl;
+		return (1);
 	}
 	BitcoinExchange	btc;
 
