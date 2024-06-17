@@ -89,11 +89,11 @@ double RPN::performOperation(char operation, double operand1, double operand2)
 
 bool	isValidValue(const std::string &valueStr)
 {
-	if (valueStr[0] == '-' && std::isdigit(valueStr[1])  && valueStr.size() == 2)
+	if (valueStr[0] == '-' && std::isdigit(valueStr[1])  && valueStr.length() == 2)
 	{
 		return true;
 	}
-	if (std::isdigit(valueStr[0]) && valueStr.size() == 1)
+	if (std::isdigit(valueStr[0]) && valueStr.length() == 1)
 	{
 		return true;
 	}
