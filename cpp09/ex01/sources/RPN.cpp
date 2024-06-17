@@ -63,7 +63,9 @@ double	RPN::evaluate(const std::string &expression)
 
 bool	RPN::isOperator(char c)
 {
-	return c == '+' || c == '-' || c == '*' || c == '/';
+	if (c == '+' || c == '-' || c == '*' || c == '/')
+		return true;
+	return false;
 }
 
 double RPN::performOperation(char operation, double operand1, double operand2)
