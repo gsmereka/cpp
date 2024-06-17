@@ -5,7 +5,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cerr << "Usage: " << argv[0] << " \"<expression>\"" << std::endl;
+		std::cerr << YELLOW << "Usage: " << argv[0] << " \"<expression>\"" << RES << std::endl;
 		return 1;
 	}
 

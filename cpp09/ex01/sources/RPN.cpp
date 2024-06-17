@@ -40,9 +40,12 @@ double	RPN::evaluate(const std::string &expression)
 			double result = performOperation(token[0], operand1, operand2);
 			operands.push(result);
 		}
-		else if (std::isdigit(token[0]) && token.size() == 1)
+		else if (isValidValue(token))
 		{
-			operands.push(token[0] - '0');
+			if (token[0] == '-')
+				operands.push((token[1] - '0') * -1);
+			else
+				operands.push(token[0] - '0');
 		}
 		else
 		{
@@ -82,4 +85,17 @@ double RPN::performOperation(char operation, double operand1, double operand2)
 		default:
 			throw std::runtime_error("Unknown operator");
 	}
+}
+
+bool	isValidValue(const std::string &valueStr)
+{
+	if (valueStr[0] == '-' && std::isdigit(valueStr[1])  && valueStr.size() == 2)
+	{
+		return true;
+	}
+	if (std::isdigit(valueStr[0]) && valueStr.size() == 1)
+	{
+		return true;
+	}
+	return false;
 }
